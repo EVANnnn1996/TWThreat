@@ -2297,7 +2297,7 @@ end
 
 function TWT.updateTitleBarText(text)
     if not text then
-        _G['TWTMainTitle']:SetText(TWT.addonName .. ' |cffabd473v' .. TWT.addonVer)
+        _G['TWTMainTitle']:SetText("")
         return true
     end
     _G['TWTMainTitle']:SetText(text)
