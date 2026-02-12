@@ -1214,6 +1214,7 @@ function TWT.updateUI(from)
 
             _G['TWThreat' .. index]:SetAlpha(TWT_CONFIG.combatAlpha)
             _G['TWThreat' .. index]:SetWidth(TWT.windowWidth - 2)
+            _G['TWThreat' .. index .. 'BGBack']:SetWidth(TWT.windowWidth - 2)
 
             _G['TWThreat' .. index .. 'Name']:SetFont("Interface\\addons\\TWThreat\\fonts\\" .. TWT_CONFIG.font .. ".ttf", 10, "OUTLINE")
             _G['TWThreat' .. index .. 'TPS']:SetFont("Interface\\addons\\TWThreat\\fonts\\" .. TWT_CONFIG.font .. ".ttf", 10, "OUTLINE")
@@ -1222,6 +1223,7 @@ function TWT.updateUI(from)
 
             _G['TWThreat' .. index]:SetHeight(TWT_CONFIG.barHeight - 1)
             _G['TWThreat' .. index .. 'BG']:SetHeight(TWT_CONFIG.barHeight - 2)
+            _G['TWThreat' .. index .. 'BGBack']:SetHeight(TWT_CONFIG.barHeight - 2)
 
             TWT.threatsFrames[index]:ClearAllPoints()
             TWT.threatsFrames[index]:SetPoint("TOPLEFT", _G["TWTMain"], "TOPLEFT", 0,
@@ -1327,6 +1329,7 @@ function TWT.updateUI(from)
                 _G['TWThreat' .. index .. 'Threat']:SetText(TWT.formatNumber(data.threat))
                 _G['TWThreat' .. index .. 'BG']:SetVertexColor(color.r, color.g, color.b, 0.9)
             end
+             _G['TWThreat' .. index .. 'BGBack']:SetVertexColor(color.r * 0.5, color.g * 0.5, color.b * 0.5, 0.8)
 
             if data.tank then
 

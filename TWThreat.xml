@@ -165,6 +165,19 @@
         </Anchors>
         <Layers>
             <Layer level="BACKGROUND">
+                <Texture name="$parentBGBack" file="Interface\addons\TWThreat\images\textures\Smooth">
+                    <Size>
+                        <AbsDimension x="298" y="18"/>
+                    </Size>
+                    <TexCoords left="1" right="0" top="0.1" bottom="1"/>
+                    <Anchors>
+                        <Anchor point="LEFT">
+                            <Offset>
+                                <AbsDimension x="0" y="0"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </Texture>
                 <Texture name="$parentBG" file="Interface\addons\TWThreat\images\textures\Smooth">
                     <Size>
                         <AbsDimension x="298" y="18"/>
