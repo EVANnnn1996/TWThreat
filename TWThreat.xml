@@ -1316,7 +1316,7 @@
                     </Frame>
 
                     <Slider name="TWTMainSettingsFrameHeightSlider" inherits="TWTSliderTemplate"
-                            minValue="20" maxValue="30" valueStep="2">
+                            minValue="20" maxValue="30" valueStep="1">
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                 <Offset>
