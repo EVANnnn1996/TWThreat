@@ -151,6 +151,11 @@
         <Size>
             <AbsDimension x="1" y="19"/>
         </Size>
+        <Backdrop edgeFile="Interface\Buttons\WHITE8X8" title="true">
+            <EdgeSize val="2"/>
+            <TileSize val="2"/>
+            <BackgroundInsets left="0" right="0" top="0" bottom="0"/>
+        </Backdrop>
         <Anchors>
             <Anchor point="TOPLEFT">
                 <Offset>
@@ -168,7 +173,7 @@
                     <Anchors>
                         <Anchor point="LEFT">
                             <Offset>
-                                <AbsDimension x="1" y="0"/>
+                                <AbsDimension x="0" y="0"/>
                             </Offset>
                         </Anchor>
                     </Anchors>

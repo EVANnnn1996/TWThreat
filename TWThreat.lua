@@ -1209,6 +1209,7 @@ function TWT.updateUI(from)
             index = index + 1
             if not TWT.threatsFrames[index] then
                 TWT.threatsFrames[index] = CreateFrame('Frame', 'TWThreat' .. index, _G["TWTMain"], 'TWThreat')
+                _G['TWThreat' .. index]:SetBackdropBorderColor(0,0,0,1)
             end
 
             _G['TWThreat' .. index]:SetAlpha(TWT_CONFIG.combatAlpha)
