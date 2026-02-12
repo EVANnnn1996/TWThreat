@@ -77,28 +77,28 @@ TWT.withAddon = 0
 TWT.addonStatus = {}
 
 TWT.classColors = {
-    ["warrior"] = { r = 0.78, g = 0.61, b = 0.43, c = "|cffc79c6e" },
-    ["mage"] = { r = 0.41, g = 0.8, b = 0.94, c = "|cff69ccf0" },
-    ["rogue"] = { r = 1, g = 0.96, b = 0.41, c = "|cfffff569" },
-    ["druid"] = { r = 1, g = 0.49, b = 0.04, c = "|cffff7d0a" },
-    ["hunter"] = { r = 0.67, g = 0.83, b = 0.45, c = "|cffabd473" },
-    ["shaman"] = { r = 0.14, g = 0.35, b = 1.0, c = "|cff0070de" },
-    ["priest"] = { r = 1, g = 1, b = 1, c = "|cffffffff" },
-    ["warlock"] = { r = 0.58, g = 0.51, b = 0.79, c = "|cff9482c9" },
-    ["paladin"] = { r = 0.96, g = 0.55, b = 0.73, c = "|cfff58cba" },
-    ["agro"] = { r = 0.96, g = 0.1, b = 0.1, c = "|cffff1111" }
+    ["warrior"] = { r=224/255, g=163/255, b=97/255,  c = "|cffc79c6e" },
+    ["mage"]    = { r=51/255,  g=199/255, b=252/255, c = "|cff69ccf0" },
+    ["rogue"]   = { r=255/255, g=243/255, b=104/255, c = "|cfffff569" },
+    ["druid"]   = { r=255/255, g=125/255, b=10/255,  c = "|cffff7d0a" },
+    ["hunter"]  = { r=171/255, g=237/255, b=79/255,  c = "|cffabd473" },
+    ["shaman"]  = { r=10/255,  g=125/255, b=237/255, c = "|cff0070de" },
+    ["priest"]  = { r=255/255, g=255/255, b=255/255, c = "|cffffffff" },
+    ["warlock"] = { r=133/255, g=97/255,  b=237/255, c = "|cff9482c9" },
+    ["paladin"] = { r=245/255, g=140/255, b=186/255, c = "|cfff58cba" },
+    ["agro"] =    { r=245/255, g=25/255,  b=25/255,  c = "|cffff1111" }
 }
 
 TWT.classCoords = {
-    ["priest"] = { 0.52, 0.73, 0.27, 0.48 },
-    ["mage"] = { 0.23, 0.48, 0.02, 0.23 },
-    ["warlock"] = { 0.77, 0.98, 0.27, 0.48 },
-    ["rogue"] = { 0.48, 0.73, 0.02, 0.23 },
-    ["druid"] = { 0.77, 0.98, 0.02, 0.23 },
-    ["hunter"] = { 0.02, 0.23, 0.27, 0.48 },
-    ["shaman"] = { 0.27, 0.48, 0.27, 0.48 },
-    ["warrior"] = { 0.02, 0.23, 0.02, 0.23 },
-    ["paladin"] = { 0.02, 0.23, 0.52, 0.73 },
+    ["priest"] = {0.250, 0.372, 0.125, 0.248},
+    ["mage"] = {0.125, 0.247, 0.000, 0.123},
+    ["warlock"] = {0.373, 0.504, 0.121, 0.238},
+    ["rogue"] = {0.250, 0.372, 0.000, 0.123},
+    ["druid"] = {0.375, 0.497, 0.000, 0.123},
+    ["hunter"] = {0.000, 0.122, 0.125, 0.248},
+    ["shaman"] = {0.125, 0.247, 0.125, 0.248},
+    ["warrior"] = {0.000, 0.122, 0.000, 0.123},
+    ["paladin"] = {0.000, 0.122, 0.250, 0.373}
 }
 
 TWT.fonts = {
@@ -570,7 +570,7 @@ function TWT.init()
         fontFrames[i]:SetPoint("TOPLEFT", _G["TWTMainSettingsFontList"], "TOPLEFT", 0, 17 - i * 17)
 
         _G['Font_' .. font]:SetID(i)
-        _G['Font_' .. font .. 'Name']:SetFont("Interface\\addons\\TWThreat\\fonts\\" .. font .. ".ttf", 15)
+        _G['Font_' .. font .. 'Name']:SetFont("Interface\\addons\\TWThreat\\fonts\\" .. font .. ".ttf", 10)
         _G['Font_' .. font .. 'Name']:SetText(font)
         _G['Font_' .. font .. 'HT']:SetVertexColor(1, 1, 1, 0.5)
 
@@ -1214,10 +1214,10 @@ function TWT.updateUI(from)
             _G['TWThreat' .. index]:SetAlpha(TWT_CONFIG.combatAlpha)
             _G['TWThreat' .. index]:SetWidth(TWT.windowWidth - 2)
 
-            _G['TWThreat' .. index .. 'Name']:SetFont("Interface\\addons\\TWThreat\\fonts\\" .. TWT_CONFIG.font .. ".ttf", 15, "OUTLINE")
-            _G['TWThreat' .. index .. 'TPS']:SetFont("Interface\\addons\\TWThreat\\fonts\\" .. TWT_CONFIG.font .. ".ttf", 15, "OUTLINE")
-            _G['TWThreat' .. index .. 'Threat']:SetFont("Interface\\addons\\TWThreat\\fonts\\" .. TWT_CONFIG.font .. ".ttf", 15, "OUTLINE")
-            _G['TWThreat' .. index .. 'Perc']:SetFont("Interface\\addons\\TWThreat\\fonts\\" .. TWT_CONFIG.font .. ".ttf", 15, "OUTLINE")
+            _G['TWThreat' .. index .. 'Name']:SetFont("Interface\\addons\\TWThreat\\fonts\\" .. TWT_CONFIG.font .. ".ttf", 10, "OUTLINE")
+            _G['TWThreat' .. index .. 'TPS']:SetFont("Interface\\addons\\TWThreat\\fonts\\" .. TWT_CONFIG.font .. ".ttf", 10, "OUTLINE")
+            _G['TWThreat' .. index .. 'Threat']:SetFont("Interface\\addons\\TWThreat\\fonts\\" .. TWT_CONFIG.font .. ".ttf", 10, "OUTLINE")
+            _G['TWThreat' .. index .. 'Perc']:SetFont("Interface\\addons\\TWThreat\\fonts\\" .. TWT_CONFIG.font .. ".ttf", 10, "OUTLINE")
 
             _G['TWThreat' .. index]:SetHeight(TWT_CONFIG.barHeight - 1)
             _G['TWThreat' .. index .. 'BG']:SetHeight(TWT_CONFIG.barHeight - 2)
@@ -1237,12 +1237,10 @@ function TWT.updateUI(from)
                 _G['TWThreat' .. index .. 'Role']:SetHeight(TWT_CONFIG.barHeight - 2)
                 _G['TWThreat' .. index .. 'Name']:SetPoint('LEFT', _G['TWThreat' .. index .. 'Role'], 'RIGHT', 1 + (TWT_CONFIG.barHeight / 15), -1)
                 if TWT.roles[name] then
-                    _G['TWThreat' .. index .. 'Role']:SetTexture('Interface\\Icons\\' .. TWT.roles[name])
-                    _G['TWThreat' .. index .. 'Role']:SetTexCoord(0.08, 0.92, 0.08, 0.92)
+                    _G['TWThreat' .. index .. 'Role']:SetTexture('Interface\\AddOns\\TWThreat\\images\\ToxiClasses')
+                    local coords = TWT.classCoords[data.class]
+                    _G['TWThreat' .. index .. 'Role']:SetTexCoord(coords[1], coords[2], coords[3], coords[4])
                     _G['TWThreat' .. index .. 'Role']:Show()
-                else
-                    _G['TWThreat' .. index .. 'Role']:SetTexture('Interface\\Glues\\CharacterCreate\\UI-CharacterCreate-Classes')
-                    _G['TWThreat' .. index .. 'Role']:SetTexCoord(unpack(TWT.classCoords[data.class]))
                 end
 
             else
