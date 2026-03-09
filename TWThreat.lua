@@ -18,7 +18,8 @@ local __floor = math.floor
 local __abs = abs
 local __char = string.char
 
-local TWT = CreateFrame("Frame")
+_G.TWT = CreateFrame("Frame")
+local TWT = _G.TWT
 
 local has_superwow = SUPERWOW_VERSION or SetAutoloot
 
@@ -146,6 +147,21 @@ SlashCmdList["TWT"] = function(cmd)
             TWT_CONFIG.visible = true
             return true
         end
+        if __substr(cmd, 1, 4) == 'hide' then
+            _G['TWTMain']:Hide()
+            TWT_CONFIG.visible = false
+            return true
+        end
+        if __substr(cmd, 1, 6) == 'toggle' then
+            if TWT_CONFIG.visible then
+                _G['TWTMain']:Hide()
+                TWT_CONFIG.visible = false
+            else
+                _G['TWTMain']:Show()
+                TWT_CONFIG.visible = true
+            end
+            return true
+        end
         if __substr(cmd, 1, 8) == 'tankmode' then
             if TWT_CONFIG.tankMode then
                 twtprint('Tank Mode is already enabled.')
@@ -186,6 +202,8 @@ SlashCmdList["TWT"] = function(cmd)
 
         twtprint(TWT.addonName .. ' |cffabd473v' .. TWT.addonVer .. '|cffffffff available commands:')
         twtprint('/twt show - shows the main window (also /twtshow)')
+        twtprint('/twt hide - hides the main window')
+        twtprint('/twt toggle - show/hide the main window')
     end
 end
 
