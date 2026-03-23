@@ -298,6 +298,10 @@ TWT:SetScript("OnEvent", function()
         if event == 'CHAT_MSG_ADDON' and __find(arg2, TWT.threatApi, 1, true) then
             totalPackets = totalPackets + 1
             totalData = totalData + __strlen(arg2)
+            local now = GetTime()
+            local delta = TWT.lastPacketTime and (now - TWT.lastPacketTime) or 0
+            TWT.lastPacketTime = now
+            twtdebug('PACKET dt=' .. __floor(delta * 1000) .. 'ms [' .. __strlen(arg2) .. ']: ' .. arg2)
 
             local threatData = arg2
             if __find(threatData, '#') and __find(threatData, TWT.tankModeApi) then
@@ -966,8 +970,9 @@ function TWT.combatStart(startforced)
     end
 
     local specIndex = 1
+    local getTab = SpellBook_GetTabInfo or GetSpellTabInfo
     for i = 2, 4 do
-        local name, texture = GetSpellTabInfo(i);
+        local name, texture = getTab(i);
         if name and texture then
             TWT.spec[specIndex].name = name
             texture = __explode(texture, '\\')
