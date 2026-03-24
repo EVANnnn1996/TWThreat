@@ -338,7 +338,7 @@
         </Layers>
     </Frame>
 
-    <Frame name="TWTMain" hidden="true" toplevel="true"
+    <Frame name="TWTMain" hidden="true" frameStrata="MEDIUM"
            parent="UIParent" movable="false" enableMouse="true" resizable="true">
         <Size>
             <AbsDimension x="300"/>
