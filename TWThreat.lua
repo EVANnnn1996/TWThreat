@@ -1264,7 +1264,6 @@ function TWT.updateUI(from)
             if not TWT.threatsFrames[index] then
                 newBar = true
                 TWT.threatsFrames[index] = CreateFrame('Frame', 'TWThreat' .. index, _G["TWTMain"], 'TWThreat')
-                _G['TWThreat' .. index]:SetBackdropBorderColor(0,0,0,1)                
                 local prefix = 'TWThreat' .. index
                 bc = {
                     frame = _G[prefix],
@@ -1298,6 +1297,7 @@ function TWT.updateUI(from)
 
             bc.frame:SetAlpha(TWT_CONFIG.combatAlpha)
             bc.frame:SetWidth(TWT.windowWidth - 2)
+            bc.frame:SetBackdropBorderColor(0, 0, 0, 1)      
 
             if fontChanged or newBar then
                 bc.nameFs:SetFont(TWT.lastFontPath, 15, "OUTLINE")
@@ -1309,6 +1309,7 @@ function TWT.updateUI(from)
             bc.frame:SetHeight(TWT_CONFIG.barHeight - 1)
             bc.bg:SetHeight(TWT_CONFIG.barHeight - 2)
             bc.bgBack:SetHeight(TWT_CONFIG.barHeight - 2)
+            bc.bgBack:SetWidth(TWT_CONFIG.windowWidth - 2)
 
             TWT.threatsFrames[index]:ClearAllPoints()
             TWT.threatsFrames[index]:SetPoint("TOPLEFT", _G["TWTMain"], "TOPLEFT", 0,
@@ -1324,15 +1325,10 @@ function TWT.updateUI(from)
                 bc.role:SetWidth(TWT_CONFIG.barHeight - 2)
                 bc.role:SetHeight(TWT_CONFIG.barHeight - 2)
                 bc.nameFs:SetPoint('LEFT', bc.role, 'RIGHT', 1 + (TWT_CONFIG.barHeight / 15), -1)
-                if TWT.roles[name] then
-                    bc.role:SetTexture('Interface\\AddOns\\TWThreat\\images\\ToxiClasses')
-                    local coords = TWT.classCoords[data.class]
-                    bc.role:SetTexCoord(coords[1], coords[2], coords[3], coords[4])
-                    bc.role:Show()
-                else
-                    bc.role:SetTexture('Interface\\Glues\\CharacterCreate\\UI-CharacterCreate-Classes')
-                    bc.role:SetTexCoord(unpack(TWT.classCoords[data.class]))
-                end
+                bc.role:SetTexture('Interface\\AddOns\\TWThreat\\images\\ToxiClasses')
+                local coords = TWT.classCoords[data.class]
+                bc.role:SetTexCoord(coords[1], coords[2], coords[3], coords[4])
+                bc.role:Show()
 
             else
                 bc.agro:Show()
@@ -1417,7 +1413,6 @@ function TWT.updateUI(from)
                 bc.threatFs:SetText(TWT.formatNumber(data.threat))
                 bc.bg:SetVertexColor(color.r, color.g, color.b, 0.9)
             end
-             _G['TWThreat' .. index .. 'BGBack']:SetVertexColor(color.r * 0.5, color.g * 0.5, color.b * 0.5, 0.8)
 
             if data.tank then
 
@@ -1429,6 +1424,8 @@ function TWT.updateUI(from)
                 bc.bg:SetVertexColor(1, 0.2, 0.2, 1)
                 TWT.updateTargetFrameThreatIndicators(data.perc)
             end
+            local bgr, bgg, bgb = bc.bg:GetVertexColor()
+            bc.bgBack:SetVertexColor(bgr * 0.5, bgg * 0.5, bgb * 0.5, 0.8)
 
             TWT.threatsFrames[index]:Show()
 
