@@ -1300,16 +1300,16 @@ function TWT.updateUI(from)
             bc.frame:SetBackdropBorderColor(0, 0, 0, 1)      
 
             if fontChanged or newBar then
-                bc.nameFs:SetFont(TWT.lastFontPath, 15, "OUTLINE")
-                bc.tpsFs:SetFont(TWT.lastFontPath, 15, "OUTLINE")
-                bc.threatFs:SetFont(TWT.lastFontPath, 15, "OUTLINE")
-                bc.percFs:SetFont(TWT.lastFontPath, 15, "OUTLINE")
+                bc.nameFs:SetFont(TWT.lastFontPath, 10, "OUTLINE")
+                bc.tpsFs:SetFont(TWT.lastFontPath, 10, "OUTLINE")
+                bc.threatFs:SetFont(TWT.lastFontPath, 10, "OUTLINE")
+                bc.percFs:SetFont(TWT.lastFontPath, 10, "OUTLINE")
             end
 
             bc.frame:SetHeight(TWT_CONFIG.barHeight - 1)
             bc.bg:SetHeight(TWT_CONFIG.barHeight - 2)
             bc.bgBack:SetHeight(TWT_CONFIG.barHeight - 2)
-            bc.bgBack:SetWidth(TWT_CONFIG.windowWidth - 2)
+            bc.bgBack:SetWidth(TWT.windowWidth - 2)
 
             TWT.threatsFrames[index]:ClearAllPoints()
             TWT.threatsFrames[index]:SetPoint("TOPLEFT", _G["TWTMain"], "TOPLEFT", 0,
