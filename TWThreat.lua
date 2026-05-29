@@ -74,8 +74,6 @@ TWT.windowWidth = 300
 TWT.minBars = 5
 TWT.maxBars = 11
 
-TWT.roles = {}
-TWT.spec = {}
 TWT.units = {}
 
 TWT.tankModeThreats = {}
@@ -332,12 +330,6 @@ TWT:SetScript("OnEvent", function()
 
             if __substr(arg2, 1, 7) == 'TWT_WHO' then
                 TWT.send('TWT_ME:' .. TWT.addonVer)
-                return true
-            end
-
-            if __substr(arg2, 1, 15) == 'TWTRoleTexture:' then
-                local tex = __explode(arg2, ':')[2] or ''
-                TWT.roles[arg4] = tex
                 return true
             end
 
@@ -957,45 +949,6 @@ function TWT.combatStart(startforced)
         _G['TWTMain']:Show()
     end
 
-    TWT.spec = {}
-    for t = 1, GetNumTalentTabs() do
-        TWT.spec[t] = {
-            talents = 0,
-            texture = ''
-        }
-        for i = 1, GetNumTalents(t) do
-            local _, _, _, _, currRank = GetTalentInfo(t, i);
-            TWT.spec[t].talents = TWT.spec[t].talents + currRank
-        end
-    end
-
-    local specIndex = 1
-    local getTab = SpellBook_GetTabInfo or GetSpellTabInfo
-    for i = 2, 4 do
-        local name, texture = getTab(i);
-        if name and texture then
-            TWT.spec[specIndex].name = name
-            texture = __explode(texture, '\\')
-            texture = texture[__getn(texture)]
-            TWT.spec[specIndex].texture = texture
-            specIndex = specIndex + 1
-        end
-    end
-
-    local sendTex = TWT.spec[1].texture
-    if TWT.spec[2].talents > TWT.spec[1].talents and TWT.spec[2].talents > TWT.spec[3].talents then
-        sendTex = TWT.spec[2].texture
-    end
-    if TWT.spec[3].talents > TWT.spec[1].talents and TWT.spec[3].talents > TWT.spec[2].talents then
-        sendTex = TWT.spec[3].texture
-    end
-
-    if TWT.class == 'warrior' and __lower(sendTex) == 'ability_rogue_eviscerate' then
-        sendTex = 'ability_warrior_savageblow' --ms
-    end
-
-    TWT.send('TWTRoleTexture:' .. sendTex)
-
     TWT.getClasses()
 
     TWT.updateUI('combatStart')
@@ -1320,14 +1273,8 @@ function TWT.updateUI(from)
                 bc.role:SetWidth(TWT_CONFIG.barHeight - 2)
                 bc.role:SetHeight(TWT_CONFIG.barHeight - 2)
                 bc.nameFs:SetPoint('LEFT', bc.role, 'RIGHT', 1 + (TWT_CONFIG.barHeight / 15), -1)
-                if TWT.roles[name] then
-                    bc.role:SetTexture('Interface\\Icons\\' .. TWT.roles[name])
-                    bc.role:SetTexCoord(0.08, 0.92, 0.08, 0.92)
-                    bc.role:Show()
-                else
-                    bc.role:SetTexture('Interface\\Glues\\CharacterCreate\\UI-CharacterCreate-Classes')
-                    bc.role:SetTexCoord(unpack(TWT.classCoords[data.class]))
-                end
+                bc.role:SetTexture('Interface\\Glues\\CharacterCreate\\UI-CharacterCreate-Classes')
+                bc.role:SetTexCoord(unpack(TWT.classCoords[data.class]))
 
             else
                 bc.agro:Show()
@@ -2070,16 +2017,6 @@ function TWT.testBars(show)
     end
 
     if show then
-        TWT.roles['Tenk'] = 'ability_warrior_defensivestance'
-        TWT.roles['Chad'] = 'spell_holy_auraoflight'
-        TWT.roles[TWT.name] = 'ability_hunter_pet_turtle'
-        TWT.roles['Olaf'] = 'ability_racial_bearform'
-        TWT.roles['Jimmy'] = 'ability_backstab'
-        TWT.roles['Miranda'] = 'spell_shadow_shadowwordpain'
-        TWT.roles['Karen'] = 'spell_holy_powerinfusion'
-        TWT.roles['Felix'] = 'spell_fire_sealoffire'
-        TWT.roles['Tom'] = 'spell_shadow_shadowbolt'
-        TWT.roles['Bill'] = 'ability_marksmanship'
         TWT.threats = {
             [TWT.AGRO] = {
                 class = 'agro', threat = 1100, perc = 110, tps = '',
