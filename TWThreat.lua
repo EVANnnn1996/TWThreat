@@ -1265,6 +1265,7 @@ function TWT.updateUI(from)
 
             bc.frame:SetHeight(TWT_CONFIG.barHeight - 1)
             bc.bg:SetHeight(TWT_CONFIG.barHeight - 2)
+            bc.bgBack:SetHeight(TWT_CONFIG.barHeight - 2)
 
             TWT.threatsFrames[index]:ClearAllPoints()
             TWT.threatsFrames[index]:SetPoint("TOPLEFT", _G["TWTMain"], "TOPLEFT", 0,
@@ -1344,6 +1345,7 @@ function TWT.updateUI(from)
                 TWT.barAnimator:animateTo(index, nil)
 
                 bc.bg:SetWidth(TWT.windowWidth - 2)
+                bc.bgBack:SetWidth(TWT.windowWidth - 2)
                 bc.threatFs:SetText('+' .. TWT.formatNumber(data.threat - TWT.threats[TWT.name].threat))
 
                 local colorLimit = 50
@@ -1377,6 +1379,9 @@ function TWT.updateUI(from)
                 bc.bg:SetVertexColor(1, 0.2, 0.2, 1)
                 TWT.updateTargetFrameThreatIndicators(data.perc)
             end
+
+            local bgr, bgg, bgb = bc.bg:GetVertexColor()
+            bc.bgBack:SetVertexColor(bgr * 0.5, bgg * 0.5, bgb * 0.5, 0.8)
 
             TWT.threatsFrames[index]:Show()
 
