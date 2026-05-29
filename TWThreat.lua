@@ -491,6 +491,7 @@ function TWT.init()
     TWT_CONFIG.hideOOC = TWT_CONFIG.hideOOC or false
     TWT_CONFIG.font = TWT_CONFIG.font or 'Roboto'
     TWT_CONFIG.barHeight = TWT_CONFIG.barHeight or 20
+    TWT_CONFIG.fontsize = TWT_CONFIG.fontsize or 15
     TWT_CONFIG.visibleBars = TWT_CONFIG.visibleBars or TWT.minBars
     TWT_CONFIG.fullScreenGlow = TWT_CONFIG.fullScreenGlow or false
     TWT_CONFIG.aggroSound = TWT_CONFIG.aggroSound or false
@@ -543,6 +544,7 @@ function TWT.init()
 
     _G['TWTMainSettingsFrameHeightSlider']:SetValue(TWT_CONFIG.barHeight) -- calls FrameHeightSlider_OnValueChanged()
     _G['TWTMainSettingsWindowScaleSlider']:SetValue(TWT_CONFIG.windowScale) -- calls FrameHeightSlider_OnValueChanged()
+    _G['TWTMainSettingsFontSizeSlider']:SetValue(TWT_CONFIG.fontsize) -- calls FontSizeSlider_OnValueChanged()
 
     _G['TWTMainSettingsCombatAlphaSlider']:SetValue(TWT_CONFIG.combatAlpha) -- calls CombatOpacitySlider_OnValueChanged()
     _G['TWTMainSettingsOOCAlphaSlider']:SetValue(TWT_CONFIG.oocAlpha) -- calls OOCombatSlider_OnValueChanged()
@@ -1202,9 +1204,13 @@ function TWT.updateUI(from)
 
     -- check if font changed since last apply
     local fontChanged = TWT.lastAppliedFont ~= TWT_CONFIG.font
+    local fontSizeChanged = TWT.lastAppliedFontSize ~= TWT_CONFIG.fontsize
     if fontChanged then
         TWT.lastAppliedFont = TWT_CONFIG.font
         TWT.lastFontPath = "Interface\\addons\\TWThreat\\fonts\\" .. TWT_CONFIG.font .. ".ttf"
+    end
+    if fontSizeChanged then
+        TWT.lastAppliedFontSize = TWT_CONFIG.fontsize
     end
 
     for name, data in TWT.iterCachedSort(TWT.threats) do
@@ -1249,11 +1255,11 @@ function TWT.updateUI(from)
             bc.frame:SetAlpha(TWT_CONFIG.combatAlpha)
             bc.frame:SetWidth(TWT.windowWidth - 2)
 
-            if fontChanged or newBar then
-                bc.nameFs:SetFont(TWT.lastFontPath, 15, "OUTLINE")
-                bc.tpsFs:SetFont(TWT.lastFontPath, 15, "OUTLINE")
-                bc.threatFs:SetFont(TWT.lastFontPath, 15, "OUTLINE")
-                bc.percFs:SetFont(TWT.lastFontPath, 15, "OUTLINE")
+            if fontChanged or fontSizeChanged or newBar then
+                bc.nameFs:SetFont(TWT.lastFontPath, TWT_CONFIG.fontsize, "OUTLINE")
+                bc.tpsFs:SetFont(TWT.lastFontPath, TWT_CONFIG.fontsize, "OUTLINE")
+                bc.threatFs:SetFont(TWT.lastFontPath, TWT_CONFIG.fontsize, "OUTLINE")
+                bc.percFs:SetFont(TWT.lastFontPath, TWT_CONFIG.fontsize, "OUTLINE")
             end
 
             bc.frame:SetHeight(TWT_CONFIG.barHeight - 1)
@@ -1272,7 +1278,7 @@ function TWT.updateUI(from)
 
                 bc.role:SetWidth(TWT_CONFIG.barHeight - 2)
                 bc.role:SetHeight(TWT_CONFIG.barHeight - 2)
-                bc.nameFs:SetPoint('LEFT', bc.role, 'RIGHT', 1 + (TWT_CONFIG.barHeight / 15), -1)
+                bc.nameFs:SetPoint('LEFT', bc.role, 'RIGHT', 1 + (TWT_CONFIG.barHeight / TWT_CONFIG.fontsize), -1)
                 bc.role:SetTexture('Interface\\AddOns\\TWThreat\\images\\ToxiClasses')
                 bc.role:SetTexCoord(unpack(TWT.classCoords[data.class]))
 
@@ -1780,6 +1786,11 @@ function FrameHeightSlider_OnValueChanged()
 
     TWT.setMinMaxResize()
     TWT.updateUI('FrameHeightSlider_OnValueChanged')
+end
+
+function FontSizeSlider_OnValueChanged()
+    TWT_CONFIG.fontsize = _G['TWTMainSettingsFontSizeSlider']:GetValue()
+    TWT.updateUI('FontSizeSlider_OnValueChanged')
 end
 
 function WindowScaleSlider_OnValueChanged()
