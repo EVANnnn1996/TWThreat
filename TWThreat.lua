@@ -1254,6 +1254,7 @@ function TWT.updateUI(from)
 
             bc.frame:SetAlpha(TWT_CONFIG.combatAlpha)
             bc.frame:SetWidth(TWT.windowWidth - 2)
+            bc.frame:SetBackdropBorderColor(0, 0, 0, 1)
 
             if fontChanged or fontSizeChanged or newBar then
                 bc.nameFs:SetFont(TWT.lastFontPath, TWT_CONFIG.fontsize, "OUTLINE")
