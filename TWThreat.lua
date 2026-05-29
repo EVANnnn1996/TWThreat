@@ -86,28 +86,28 @@ TWT.withAddon = 0
 TWT.addonStatus = {}
 
 TWT.classColors = {
-    ["warrior"] = { r = 0.78, g = 0.61, b = 0.43, c = "|cffc79c6e" },
-    ["mage"] = { r = 0.41, g = 0.8, b = 0.94, c = "|cff69ccf0" },
-    ["rogue"] = { r = 1, g = 0.96, b = 0.41, c = "|cfffff569" },
-    ["druid"] = { r = 1, g = 0.49, b = 0.04, c = "|cffff7d0a" },
-    ["hunter"] = { r = 0.67, g = 0.83, b = 0.45, c = "|cffabd473" },
-    ["shaman"] = { r = 0.14, g = 0.35, b = 1.0, c = "|cff0070de" },
-    ["priest"] = { r = 1, g = 1, b = 1, c = "|cffffffff" },
-    ["warlock"] = { r = 0.58, g = 0.51, b = 0.79, c = "|cff9482c9" },
-    ["paladin"] = { r = 0.96, g = 0.55, b = 0.73, c = "|cfff58cba" },
-    ["agro"] = { r = 0.96, g = 0.1, b = 0.1, c = "|cffff1111" }
+    ["warrior"] = { r = 0.87, g = 0.67, b = 0.45, c = "|cffdfaa73" },
+    ["mage"]    = { r = 0,    g = 0.85, b = 1,    c = "|cff00d8ff" },
+    ["rogue"]   = { r = 1,    g = 0.95, b = 0.41, c = "|cfffff368" },
+    ["druid"]   = { r = 1,    g = 0.66, b = 0,    c = "|cffffa900" },
+    ["hunter"]  = { r = 0.67, g = 0.93, b = 0.31, c = "|cffabed4f" },
+    ["shaman"]  = { r = 0.04, g = 0.49, b = 0.93, c = "|cff0a7ded" },
+    ["priest"]  = { r = 0.99, g = 0.99, b = 0.99, c = "|cfffcfcfc" },
+    ["warlock"] = { r = 0.6,  g = 0.27, b = 1,    c = "|cff9946ff" },
+    ["paladin"] = { r = 1,    g = 0.58, b = 0.85, c = "|cffff95d8" },
+    ["agro"]    = { r = 0.95, g = 0.01, b = 0.01, c = "|cffff1111" }
 }
 
 TWT.classCoords = {
-    ["priest"] = { 0.52, 0.73, 0.27, 0.48 },
-    ["mage"] = { 0.23, 0.48, 0.02, 0.23 },
-    ["warlock"] = { 0.77, 0.98, 0.27, 0.48 },
-    ["rogue"] = { 0.48, 0.73, 0.02, 0.23 },
-    ["druid"] = { 0.77, 0.98, 0.02, 0.23 },
-    ["hunter"] = { 0.02, 0.23, 0.27, 0.48 },
-    ["shaman"] = { 0.27, 0.48, 0.27, 0.48 },
-    ["warrior"] = { 0.02, 0.23, 0.02, 0.23 },
-    ["paladin"] = { 0.02, 0.23, 0.52, 0.73 },
+    ["priest"]  = {0.250, 0.372, 0.125, 0.248},
+    ["mage"]    = {0.125, 0.247, 0.000, 0.123},
+    ["warlock"] = {0.373, 0.504, 0.121, 0.238},
+    ["rogue"]   = {0.250, 0.372, 0.000, 0.123},
+    ["druid"]   = {0.375, 0.497, 0.000, 0.123},
+    ["hunter"]  = {0.000, 0.122, 0.125, 0.248},
+    ["shaman"]  = {0.125, 0.247, 0.125, 0.248},
+    ["warrior"] = {0.000, 0.122, 0.000, 0.123},
+    ["paladin"] = {0.000, 0.122, 0.250, 0.373}
 }
 
 TWT.fonts = {
@@ -1273,7 +1273,7 @@ function TWT.updateUI(from)
                 bc.role:SetWidth(TWT_CONFIG.barHeight - 2)
                 bc.role:SetHeight(TWT_CONFIG.barHeight - 2)
                 bc.nameFs:SetPoint('LEFT', bc.role, 'RIGHT', 1 + (TWT_CONFIG.barHeight / 15), -1)
-                bc.role:SetTexture('Interface\\Glues\\CharacterCreate\\UI-CharacterCreate-Classes')
+                bc.role:SetTexture('Interface\\AddOns\\TWThreat\\images\\ToxiClasses')
                 bc.role:SetTexCoord(unpack(TWT.classCoords[data.class]))
 
             else
