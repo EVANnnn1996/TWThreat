@@ -519,7 +519,7 @@
                     <OnEnter>
                         GameTooltip:ClearLines();
                         GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                        GameTooltip:AddLine('Open Settings');
+                        GameTooltip:AddLine(TWT.L.tt_open_settings);
                         GameTooltip:Show();
                     </OnEnter>
                     <OnLeave>
@@ -548,7 +548,7 @@
                     <OnEnter>
                         GameTooltip:ClearLines();
                         GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                        GameTooltip:AddLine('Lock/Unlock Window')
+                        GameTooltip:AddLine(TWT.L.tt_lock_unlock)
                         GameTooltip:Show();
                     </OnEnter>
                     <OnLeave>
@@ -577,7 +577,7 @@
                     <OnEnter>
                         GameTooltip:ClearLines();
                         GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                        GameTooltip:AddLine('Close Window');
+                        GameTooltip:AddLine(TWT.L.tt_close_window);
                         GameTooltip:Show();
                     </OnEnter>
                     <OnLeave>
@@ -699,7 +699,7 @@
                     <OnEnter>
                         GameTooltip:ClearLines();
                         GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                        GameTooltip:AddLine('Close Window');
+                        GameTooltip:AddLine(TWT.L.tt_close_window);
                         GameTooltip:Show();
                     </OnEnter>
                     <OnLeave>
@@ -819,8 +819,8 @@
                             <OnEnter>
                                 GameTooltip:ClearLines();
                                 GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                                GameTooltip:AddLine('Combat Show');
-                                GameTooltip:AddLine('Automatically shows the window when combat begins.', 1, 1, 1);
+                                GameTooltip:AddLine(TWT.L.tt_combat_show_title);
+                                GameTooltip:AddLine(TWT.L.tt_combat_show_desc, 1, 1, 1);
                                 GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
@@ -868,8 +868,8 @@
                             <OnEnter>
                                 GameTooltip:ClearLines();
                                 GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                                GameTooltip:AddLine('Combat Hide');
-                                GameTooltip:AddLine('Automatically hides the window when combat ends.', 1, 1, 1);
+                                GameTooltip:AddLine(TWT.L.tt_combat_hide_title);
+                                GameTooltip:AddLine(TWT.L.tt_combat_hide_desc, 1, 1, 1);
                                 GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
@@ -917,11 +917,11 @@
                             <OnEnter>
                                 GameTooltip:ClearLines();
                                 GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                                GameTooltip:AddLine('Tank Mode');
-                                GameTooltip:AddLine('Extra window showing creatures you are tanking.', 1, 1, 1);
-                                GameTooltip:AddLine('Disables Full Screen Glow effect and Agro Warning Sound.', 1,1,1);
-                                GameTooltip:AddLine('This frame is visible only when you are tanking', 1, 1, 1);
-                                GameTooltip:AddLine('more than one creature.', 1, 1, 1);
+                                GameTooltip:AddLine(TWT.L.tt_tank_mode_title);
+                                GameTooltip:AddLine(TWT.L.tt_tank_mode_desc1, 1, 1, 1);
+                                GameTooltip:AddLine(TWT.L.tt_tank_mode_desc2, 1,1,1);
+                                GameTooltip:AddLine(TWT.L.tt_tank_mode_desc3, 1, 1, 1);
+                                GameTooltip:AddLine(TWT.L.tt_tank_mode_desc4, 1, 1, 1);
                                 GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
@@ -969,8 +969,8 @@
                             <OnEnter>
                                 GameTooltip:ClearLines();
                                 GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                                GameTooltip:AddLine('Label Row');
-                                GameTooltip:AddLine('Show TPS/Threat/% Max Label Row', 1, 1, 1);
+                                GameTooltip:AddLine(TWT.L.tt_label_row_title);
+                                GameTooltip:AddLine(TWT.L.tt_label_row_desc, 1, 1, 1);
                                 GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
@@ -1025,10 +1025,10 @@
                             <OnEnter>
                                 GameTooltip:ClearLines();
                                 GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                                GameTooltip:AddLine('Healer Master Target *EXPERIMENTAL*');
-                                GameTooltip:AddLine('Select a tank to get his target\'s threat information.', 1,1,1);
-                                GameTooltip:AddLine('Clicking this button with no target or with the same', 1,1,1);
-                                GameTooltip:AddLine('target will reset Master Target.', 1,1,1);
+                                GameTooltip:AddLine(TWT.L.tt_healer_mt_title);
+                                GameTooltip:AddLine(TWT.L.tt_healer_mt_desc1, 1,1,1);
+                                GameTooltip:AddLine(TWT.L.tt_healer_mt_desc2, 1,1,1);
+                                GameTooltip:AddLine(TWT.L.tt_healer_mt_desc3, 1,1,1);
                                 GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
@@ -1455,7 +1455,7 @@
                             <OnEnter>
                                 GameTooltip:ClearLines();
                                 GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                                GameTooltip:AddLine('Show TPS Column');
+                                GameTooltip:AddLine(TWT.L.tt_show_tps);
                                 GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
@@ -1503,7 +1503,7 @@
                             <OnEnter>
                                 GameTooltip:ClearLines();
                                 GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                                GameTooltip:AddLine('Show Threat Column');
+                                GameTooltip:AddLine(TWT.L.tt_show_threat);
                                 GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
@@ -1551,7 +1551,7 @@
                             <OnEnter>
                                 GameTooltip:ClearLines();
                                 GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                                GameTooltip:AddLine('Show Percent Column');
+                                GameTooltip:AddLine(TWT.L.tt_show_perc);
                                 GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
@@ -1616,12 +1616,12 @@
                             <OnEnter>
                                 GameTooltip:ClearLines();
                                 GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                                GameTooltip:AddLine('Glow');
-                                GameTooltip:AddLine('Shows a colored aura ranging from Green/Yellow/Red', 1, 1, 1);
-                                GameTooltip:AddLine('on the Default UI\'s target frame. The color of the aura',1,1,1);
-                                GameTooltip:AddLine('is based on your current threat threshold:', 1, 1, 1);
-                                GameTooltip:AddLine(' green - yellow for 0% - 49%', 1, 1, 1);
-                                GameTooltip:AddLine(' yellow - red for 50% - 100%', 1, 1, 1);
+                                GameTooltip:AddLine(TWT.L.tt_glow_title);
+                                GameTooltip:AddLine(TWT.L.tt_glow_default_desc1, 1, 1, 1);
+                                GameTooltip:AddLine(TWT.L.tt_glow_default_desc2,1,1,1);
+                                GameTooltip:AddLine(TWT.L.tt_glow_desc3, 1, 1, 1);
+                                GameTooltip:AddLine(TWT.L.tt_glow_desc4, 1, 1, 1);
+                                GameTooltip:AddLine(TWT.L.tt_glow_desc5, 1, 1, 1);
                                 GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
@@ -1669,8 +1669,8 @@
                             <OnEnter>
                                 GameTooltip:ClearLines();
                                 GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                                GameTooltip:AddLine('Percentages');
-                                GameTooltip:AddLine('Shows threat percentages on the default target frame.', 1, 1, 1);
+                                GameTooltip:AddLine(TWT.L.tt_perc_title);
+                                GameTooltip:AddLine(TWT.L.tt_perc_default_desc, 1, 1, 1);
                                 GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
@@ -1719,12 +1719,12 @@
                             <OnEnter>
                                 GameTooltip:ClearLines();
                                 GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                                GameTooltip:AddLine('Glow');
-                                GameTooltip:AddLine('Shows a colored aura ranging from Green/Yellow/Red', 1, 1, 1);
-                                GameTooltip:AddLine('on the pfUI target frame. The color of the aura', 1, 1, 1);
-                                GameTooltip:AddLine('is based on your current threat threshold:', 1, 1, 1);
-                                GameTooltip:AddLine(' green - yellow for 0% - 49%', 1, 1, 1);
-                                GameTooltip:AddLine(' yellow - red for 50% - 100%', 1, 1, 1);
+                                GameTooltip:AddLine(TWT.L.tt_glow_title);
+                                GameTooltip:AddLine(TWT.L.tt_glow_default_desc1, 1, 1, 1);
+                                GameTooltip:AddLine(TWT.L.tt_glow_pfui_desc2, 1, 1, 1);
+                                GameTooltip:AddLine(TWT.L.tt_glow_desc3, 1, 1, 1);
+                                GameTooltip:AddLine(TWT.L.tt_glow_desc4, 1, 1, 1);
+                                GameTooltip:AddLine(TWT.L.tt_glow_desc5, 1, 1, 1);
                                 GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
@@ -1772,8 +1772,8 @@
                             <OnEnter>
                                 GameTooltip:ClearLines();
                                 GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                                GameTooltip:AddLine('Percentages');
-                                GameTooltip:AddLine('Shows threat percentages on pfUI target frame.', 1, 1, 1);
+                                GameTooltip:AddLine(TWT.L.tt_perc_title);
+                                GameTooltip:AddLine(TWT.L.tt_perc_pfui_desc, 1, 1, 1);
                                 GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
@@ -1821,7 +1821,7 @@
                             <OnEnter>
                                 GameTooltip:ClearLines();
                                 GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                                GameTooltip:AddLine('Anchor TOP');
+                                GameTooltip:AddLine(TWT.L.tt_anchor_top);
 <!--                                GameTooltip:AddLine('Shows threat percentages on the default target frame.', 1, 1, 1);-->
                                 GameTooltip:Show();
                             </OnEnter>
@@ -1870,7 +1870,7 @@
                             <OnEnter>
                                 GameTooltip:ClearLines();
                                 GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                                GameTooltip:AddLine('Anchor BOTTOM');
+                                GameTooltip:AddLine(TWT.L.tt_anchor_bottom);
                                 <!--                                GameTooltip:AddLine('Shows threat percentages on the default target frame.', 1, 1, 1);-->
                                 GameTooltip:Show();
                             </OnEnter>
@@ -1920,9 +1920,9 @@
                             <OnEnter>
                                 GameTooltip:ClearLines();
                                 GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                                GameTooltip:AddLine('Full Screen Glow');
-                                GameTooltip:AddLine('Red glowing screen edges when you reach aggro threshold.',1,1,1);
-                                GameTooltip:AddLine('This feature is disabled in Tank Mode.', 1, 1, 1);
+                                GameTooltip:AddLine(TWT.L.tt_full_screen_glow_title);
+                                GameTooltip:AddLine(TWT.L.tt_full_screen_glow_desc1,1,1,1);
+                                GameTooltip:AddLine(TWT.L.tt_disabled_in_tank_mode, 1, 1, 1);
                                 GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
@@ -1970,9 +1970,9 @@
                             <OnEnter>
                                 GameTooltip:ClearLines();
                                 GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                                GameTooltip:AddLine('Aggro Warning Sound');
-                                GameTooltip:AddLine('Plays a warning sound when you reach aggro threshold.',1,1,1);
-                                GameTooltip:AddLine('This feature is disabled in Tank Mode.', 1, 1, 1);
+                                GameTooltip:AddLine(TWT.L.tt_aggro_sound_title);
+                                GameTooltip:AddLine(TWT.L.tt_aggro_sound_desc1,1,1,1);
+                                GameTooltip:AddLine(TWT.L.tt_disabled_in_tank_mode, 1, 1, 1);
                                 GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
@@ -2148,7 +2148,7 @@
                     <OnEnter>
                         GameTooltip:ClearLines();
                         GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                        GameTooltip:AddLine('Close Window and disable Tank Mode');
+                        GameTooltip:AddLine(TWT.L.tt_close_tank_mode);
                         GameTooltip:Show();
                     </OnEnter>
                     <OnLeave>
@@ -2177,8 +2177,8 @@
                     <OnEnter>
                         GameTooltip:ClearLines();
                         GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                        GameTooltip:AddLine('Stick Top');
-                        GameTooltip:AddLine('Stick this window to the top of the main window.');
+                        GameTooltip:AddLine(TWT.L.tt_stick_top_title);
+                        GameTooltip:AddLine(TWT.L.tt_stick_top_desc);
                         GameTooltip:Show();
                     </OnEnter>
                     <OnLeave>
@@ -2206,8 +2206,8 @@
                     <OnEnter>
                         GameTooltip:ClearLines();
                         GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                        GameTooltip:AddLine('Stick Right');
-                        GameTooltip:AddLine('Stick this window to the right of the main window.');
+                        GameTooltip:AddLine(TWT.L.tt_stick_right_title);
+                        GameTooltip:AddLine(TWT.L.tt_stick_right_desc);
                         GameTooltip:Show();
                     </OnEnter>
                     <OnLeave>
@@ -2235,8 +2235,8 @@
                     <OnEnter>
                         GameTooltip:ClearLines();
                         GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                        GameTooltip:AddLine('Stick Bottom');
-                        GameTooltip:AddLine('Stick this window to the bottom of the main window.');
+                        GameTooltip:AddLine(TWT.L.tt_stick_bottom_title);
+                        GameTooltip:AddLine(TWT.L.tt_stick_bottom_desc);
                         GameTooltip:Show();
                     </OnEnter>
                     <OnLeave>
@@ -2264,8 +2264,8 @@
                     <OnEnter>
                         GameTooltip:ClearLines();
                         GameTooltip:SetOwner(this, "ANCHOR_RIGHT", -(this:GetWidth() / 2) + 5, 0);
-                        GameTooltip:AddLine('Stick Left');
-                        GameTooltip:AddLine('Stick this window to the left of the main window.');
+                        GameTooltip:AddLine(TWT.L.tt_stick_left_title);
+                        GameTooltip:AddLine(TWT.L.tt_stick_left_desc);
                         GameTooltip:Show();
                     </OnEnter>
                     <OnLeave>

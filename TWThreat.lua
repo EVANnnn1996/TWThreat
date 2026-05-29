@@ -459,7 +459,63 @@ TWT.glowFader:SetScript("OnUpdate", function()
     end
 end)
 
+function TWT.applyLocale()
+    local L = TWT.L
+    if not L then return end
+
+    local function setText(name, key)
+        local f = _G[name]
+        if f and L[key] then f:SetText(L[key]) end
+    end
+
+    -- settings panel title & tabs
+    setText('TWTMainSettingsTitle', 'title_settings')
+    setText('TWTMainSettingsTab1Button', 'tab_general')
+    setText('TWTMainSettingsTab2Button', 'tab_bars')
+    setText('TWTMainSettingsTab3Button', 'tab_integration')
+
+    -- general tab
+    setText('TWTMainSettingsShowInCombatLabel', 'cb_show_in_combat')
+    setText('TWTMainSettingsHideOOCLabel', 'cb_hide_ooc')
+    setText('TWTMainSettingsTankModeLabel', 'cb_tank_mode')
+    setText('TWTMainSettingsLabelRowLabel', 'cb_label_row')
+    setText('TWTMainSettingsHealerMasterTargetButton', 'btn_healer_master_target')
+    setText('TWTMainSettingsHealerMasterTargetButtonText', 'label_healer_master_target')
+    setText('TWTMainSettingsWindowScaleSliderText', 'label_window_scale')
+    setText('TWTMainSettingsCombatAlphaSliderText', 'label_combat_opacity')
+    setText('TWTMainSettingsOOCAlphaSliderText', 'label_ooc_opacity')
+
+    -- bars tab
+    setText('TWTMainSettingsFontButtonSBarFont', 'label_bar_font')
+    setText('TWTMainSettingsFrameHeightSliderText', 'label_bar_height')
+    setText('TWTMainSettingsFontSizeSliderText', 'label_font_size')
+    setText('TWTMainSettingsColumnsTPSLabel', 'cb_show_tps')
+    setText('TWTMainSettingsColumnsThreatLabel', 'cb_show_threat')
+    setText('TWTMainSettingsColumnsPercentLabel', 'cb_show_perc')
+
+    -- integration tab
+    setText('TWTMainSettingsTargetFrameGlowLabel', 'cb_target_frame_glow')
+    setText('TWTMainSettingsPercNumbersLabel', 'cb_perc_numbers')
+    setText('TWTMainSettingsTargetFrameGlowPFUILabel', 'cb_target_frame_glow_pfui')
+    setText('TWTMainSettingsPercNumbersPFUILabel', 'cb_perc_numbers_pfui')
+    setText('TWTMainSettingsPercNumbersPFUItopLabel', 'cb_anchor_top')
+    setText('TWTMainSettingsPercNumbersPFUIbottomLabel', 'cb_anchor_bottom')
+    setText('TWTMainSettingsFullScreenGlowLabel', 'cb_full_screen_glow')
+    setText('TWTMainSettingsAggroSoundLabel', 'cb_aggro_sound')
+    setText('TWTMainSettingsAggroThresholdSliderText', 'label_aggro_threshold')
+
+    -- tank mode window
+    setText('TWTMainTankModeWindowTitle', 'title_tank_mode_window')
+
+    -- raid status window
+    setText('TWTWithAddonListTitle', 'title_addon_raid_status')
+    setText('TWTWithAddonListRefreshButton', 'btn_refresh')
+end
+
 function TWT.init()
+    -- pick locale (defaults to enUS)
+    local clientLocale = GetLocale and GetLocale() or 'enUS'
+    TWT.L = TWT.locales[clientLocale] or TWT.locales.enUS
 
     local mainLevel = 50
     _G['TWTMain']:SetFrameLevel(mainLevel)
@@ -570,6 +626,8 @@ function TWT.init()
     _G['TWTMainSettingsColumnsPercent']:SetChecked(TWT_CONFIG.colPerc)
 
     _G['TWTMainSettingsLabelRow']:SetChecked(TWT_CONFIG.labelRow)
+
+    TWT.applyLocale()
 
     TWT.setColumnLabels()
 
