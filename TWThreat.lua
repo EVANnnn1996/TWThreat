@@ -37,7 +37,7 @@ TWT.tankModeApi = 'TMTv1=';
 TWT.UDTS = 'TWT_UDTSv4';
 
 TWT.showedUpdateNotification = false
-TWT.addonName = '|cffabd473TW|cff11cc11 |cffcdfe00Threatmeter'
+TWT.addonName = 'TW Threatmeter'
 
 TWT.prefix = 'TWT'
 TWT.channel = 'RAID'
@@ -49,7 +49,6 @@ TWT.class = __lower(cl)
 TWT.lastAggroWarningSoundTime = 0
 TWT.lastAggroWarningGlowTime = 0
 
-TWT.AGRO = '-Pull Aggro at-'
 TWT.threatsFrames = {}
 TWT.barCache = {}
 TWT.cachedSort = nil
@@ -97,6 +96,8 @@ TWT.classColors = {
     ["paladin"] = { r = 1,    g = 0.58, b = 0.85, c = "|cffff95d8" },
     ["agro"]    = { r = 0.95, g = 0.01, b = 0.01, c = "|cffff1111" }
 }
+
+TWT.addonName = (TWT.classColors[TWT.class] or TWT.classColors.priest).c .. TWT.addonName
 
 TWT.classCoords = {
     ["priest"]  = {0.250, 0.372, 0.125, 0.248},
@@ -513,9 +514,9 @@ function TWT.applyLocale()
 end
 
 function TWT.init()
-    -- pick locale (defaults to enUS)
     local clientLocale = GetLocale and GetLocale() or 'enUS'
-    TWT.L = TWT.locales[clientLocale] or TWT.locales.enUS
+    local locales = _G.TWThreatLocales or {}
+    TWT.L = locales[clientLocale] or locales.enUS or {}
 
     local mainLevel = 50
     _G['TWTMain']:SetFrameLevel(mainLevel)
@@ -573,6 +574,7 @@ function TWT.init()
     TWT_CONFIG.debug = TWT_CONFIG.debug or false
     TWT_CONFIG.units = TWT_CONFIG.units or {}
     TWT.units = TWT_CONFIG.units
+    TWT.ARGO = TWT.L.pull_aggro_at or TWT.ARGO
 
     if TWT_CONFIG.visible then
         _G['TWTMain']:Show()
@@ -907,7 +909,7 @@ function TWT.handleThreatPacket(packet)
                 perc = 0,
                 melee = 0,
                 tps = 0,
-                class = __lower(UnitClass('player'))
+                class = TWT.class
             }
     end
     
@@ -1289,6 +1291,7 @@ function TWT.updateUI(from)
                     threatFs = _G[prefix .. 'Threat'],
                     percFs = _G[prefix .. 'Perc'],
                     bg = _G[prefix .. 'BG'],
+                    bgBack = _G[prefix .. 'BGBack'],
                     role = _G[prefix .. 'Role'],
                     agro = _G[prefix .. 'AGRO'],
                 }
@@ -1304,6 +1307,7 @@ function TWT.updateUI(from)
                     threatFs = _G[prefix .. 'Threat'],
                     percFs = _G[prefix .. 'Perc'],
                     bg = _G[prefix .. 'BG'],
+                    bgBack = _G[prefix .. 'BGBack'],
                     role = _G[prefix .. 'Role'],
                     agro = _G[prefix .. 'AGRO'],
                 }
@@ -1324,6 +1328,7 @@ function TWT.updateUI(from)
             bc.frame:SetHeight(TWT_CONFIG.barHeight - 1)
             bc.bg:SetHeight(TWT_CONFIG.barHeight - 2)
             bc.bgBack:SetHeight(TWT_CONFIG.barHeight - 2)
+            bc.bgBack:SetWidth(TWT.windowWidth - 2)
 
             TWT.threatsFrames[index]:ClearAllPoints()
             TWT.threatsFrames[index]:SetPoint("TOPLEFT", _G["TWTMain"], "TOPLEFT", 0,
@@ -1340,7 +1345,8 @@ function TWT.updateUI(from)
                 bc.role:SetHeight(TWT_CONFIG.barHeight - 2)
                 bc.nameFs:SetPoint('LEFT', bc.role, 'RIGHT', 1 + (TWT_CONFIG.barHeight / TWT_CONFIG.fontsize), -1)
                 bc.role:SetTexture('Interface\\AddOns\\TWThreat\\images\\ToxiClasses')
-                bc.role:SetTexCoord(unpack(TWT.classCoords[data.class]))
+                local coords = TWT.classCoords[data.class] or TWT.classCoords['priest']
+                bc.role:SetTexCoord(coords[1], coords[2], coords[3], coords[4])
 
             else
                 bc.agro:Show()
@@ -1403,7 +1409,6 @@ function TWT.updateUI(from)
                 TWT.barAnimator:animateTo(index, nil)
 
                 bc.bg:SetWidth(TWT.windowWidth - 2)
-                bc.bgBack:SetWidth(TWT.windowWidth - 2)
                 bc.threatFs:SetText('+' .. TWT.formatNumber(data.threat - TWT.threats[TWT.name].threat))
 
                 local colorLimit = 50

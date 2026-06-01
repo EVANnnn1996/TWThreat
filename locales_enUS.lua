@@ -1,7 +1,8 @@
-TWT = TWT or {}
-TWT.locales = TWT.locales or {}
+TWThreatLocales = TWThreatLocales or {}
 
-TWT.locales.enUS = {
+TWThreatLocales.enUS = {
+    pull_aggro_at              = 'Pull Aggro at',
+
     -- main window tooltips
     tt_open_settings           = 'Open Settings',
     tt_lock_unlock             = 'Lock/Unlock Window',

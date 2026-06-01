@@ -1,7 +1,8 @@
-TWT = TWT or {}
-TWT.locales = TWT.locales or {}
+TWThreatLocales = TWThreatLocales or {}
 
-TWT.locales.zhCN = {
+TWThreatLocales.zhCN = {
+    pull_aggro_at              = 'OT阈值为',
+
     -- main window tooltips
     tt_open_settings           = '打开设置',
     tt_lock_unlock             = '锁定/解锁窗口',
