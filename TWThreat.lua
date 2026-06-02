@@ -574,7 +574,7 @@ function TWT.init()
     TWT_CONFIG.debug = TWT_CONFIG.debug or false
     TWT_CONFIG.units = TWT_CONFIG.units or {}
     TWT.units = TWT_CONFIG.units
-    TWT.ARGO = TWT.L.pull_aggro_at or TWT.ARGO
+    TWT.AGRO = TWT.L.pull_aggro_at or TWT.AGRO
 
     if TWT_CONFIG.visible then
         _G['TWTMain']:Show()
