@@ -1379,7 +1379,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                 <Offset>
-                                    <AbsDimension x="148" y="-95"/>
+                                    <AbsDimension x="148" y="-85"/>
                                 </Offset>
                             </Anchor>
                         </Anchors>
@@ -1440,7 +1440,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                 <Offset>
-                                    <AbsDimension x="10" y="-90"/>
+                                    <AbsDimension x="10" y="-120"/>
                                 </Offset>
                             </Anchor>
                         </Anchors>
@@ -1488,7 +1488,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                 <Offset>
-                                    <AbsDimension x="10" y="-110"/>
+                                    <AbsDimension x="10" y="-140"/>
                                 </Offset>
                             </Anchor>
                         </Anchors>
@@ -1536,7 +1536,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                 <Offset>
-                                    <AbsDimension x="10" y="-130"/>
+                                    <AbsDimension x="10" y="-160"/>
                                 </Offset>
                             </Anchor>
                         </Anchors>
