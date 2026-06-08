@@ -165,7 +165,7 @@
         </Anchors>
         <Layers>
             <Layer level="BACKGROUND">
-                <Texture name="$parentBG" file="Interface\addons\TWThreat\images\textures\Smooth">
+                <Texture name="$parentBGBack" file="Interface\addons\TWThreat\images\textures\Smooth">
                     <Size>
                         <AbsDimension x="298" y="18"/>
                     </Size>
@@ -178,7 +178,7 @@
                         </Anchor>
                     </Anchors>
                 </Texture>
-                <Texture name="$parentBGBack" file="Interface\addons\TWThreat\images\textures\Smooth">
+                <Texture name="$parentBG" file="Interface\addons\TWThreat\images\textures\Smooth">
                     <Size>
                         <AbsDimension x="298" y="18"/>
                     </Size>
