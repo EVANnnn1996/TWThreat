@@ -1443,8 +1443,9 @@ function TWT.updateUI(from)
                 TWT.updateTargetFrameThreatIndicators(data.perc)
             end
 
-            local bgr, bgg, bgb = bc.bg:GetVertexColor()
+            local bgr, bgg, bgb, bga = bc.bg:GetVertexColor()
             bc.bgBack:SetVertexColor(bgr * 0.5, bgg * 0.5, bgb * 0.5, 0.8)
+            bc.bg:SetVertexColor(bgr, bgg, bgb, bga or 0.9)
 
             TWT.threatsFrames[index]:Show()
 
