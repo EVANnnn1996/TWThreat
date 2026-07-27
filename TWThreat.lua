@@ -1444,8 +1444,10 @@ function TWT.updateUI(from)
             end
 
             local bgr, bgg, bgb, bga = bc.bg:GetVertexColor()
+            bga = bga or 0.9
             bc.bgBack:SetVertexColor(bgr * 0.5, bgg * 0.5, bgb * 0.5, 0.8)
-            bc.bg:SetVertexColor(bgr, bgg, bgb, bga or 0.9)
+            bc.bg:SetVertexColor(bgr, bgg, bgb, 0)
+            bc.bg:SetVertexColor(bgr, bgg, bgb, bga)
 
             TWT.threatsFrames[index]:Show()
 
